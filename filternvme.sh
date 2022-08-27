@@ -21,6 +21,10 @@ for dev in ${devs}
 do
   echo "NVMe device found in fstab: ${dev}"
   UUID=$(sudo /usr/sbin/blkid ${dev} | awk '{print $2}')
+  if [ "${UUID}" == "" ]; then
+	echo "ERROR: No NVMe devices found"
+	exit 1
+  fi
   echo "${UUID}    ${details[${a}]}" | sed -e 's/\,/\ \ \ /g' >> ${FSTABOUT}
   let a+=1
 done

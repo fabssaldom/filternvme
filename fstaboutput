@@ -8,5 +8,3 @@
 #
 UUID=34e26dc7-0242-4153-9621-9e70eaac573d /                       xfs     defaults        0 0
 UUID=0308-0EB7          /boot/efi               vfat    defaults,uid=0,gid=0,umask=0077,shortname=winnt 0 0
-UUID="b4744450-f78a-4a6a-a856-2c42aad1633d"    /app1   xfs   defaults   0   0
-UUID="be23a183-5f1b-44b9-a720-cd245f7af0bd"    /db   xfs   defaults   0   0
