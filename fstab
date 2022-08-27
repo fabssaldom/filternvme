@@ -1,0 +1,12 @@
+
+#
+# /etc/fstab
+# Created by anaconda on Mon Aug 22 19:59:44 2022
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+UUID=34e26dc7-0242-4153-9621-9e70eaac573d /                       xfs     defaults        0 0
+UUID=0308-0EB7          /boot/efi               vfat    defaults,uid=0,gid=0,umask=0077,shortname=winnt 0 0
+/dev/nvme1n1p1		/app1		xfs	defaults	0	0
+/dev/nvme1n1p2		/db		xfs	defaults	0	0
