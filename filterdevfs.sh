@@ -6,16 +6,17 @@
 # Specify fstab path (original and new one)
 FSTAB=fstab
 FSTABOUT=fstaboutput
+BLKID=$(which blkid)
 cp ${FSTAB} ${FSTABOUT}
 
 if [ ! -f ${BLKID} ]; then
 	echo "ERROR: Required tool: blkid not found"
 	exit 1
 fi
-devs=$(awk '/\/dev\/[nvmeNVME]/ {print $1}' ${FSTAB})
-details=( $(awk '/\/dev\/[nvmeNVME]/ {printf "%s,%s,%s,%s,%s\n",$2,$3,$4,$5,$6}' ${FSTAB}) )
+devs=$(awk '/\/dev\/(sd|vd|xvd|nvme|NVME)/ {print $1}' ${FSTAB})
+details=( $(awk '/\/dev\/(sd|vd|xvd|nvme|NVME)/ {printf "%s,%s,%s,%s,%s\n",$2,$3,$4,$5,$6}' ${FSTAB}) )
 cp ${FSTAB} ${FSTAB}.bkp-$(date +%Y_%M_%d-%H_%m_%S)
-sed -i '/\/dev\/[nvmeNVME]/d' ${FSTABOUT}
+sed -i '/\/dev\/\(sd\|vd\|xvd\|nvme\|NVME\)/d' ${FSTABOUT}|
 a=0
 for dev in ${devs}
 do
